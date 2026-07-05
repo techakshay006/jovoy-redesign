@@ -2,12 +2,13 @@
 
 Interactive homepage prototype and owner pitch landing page.
 
-## Live URLs (after Vercel deploy)
+## Live URLs
 
-| Page | Path |
-|------|------|
-| Homepage demo | `https://jovoy-redesign.vercel.app` |
-| Owner pitch (share this) | `https://jovoy-redesign.vercel.app/pitch` |
+| Page | URL |
+|------|-----|
+| Homepage demo | [jovoy-redesign.vercel.app](https://jovoy-redesign.vercel.app/) |
+| Owner pitch (share this) | [jovoy-redesign.vercel.app/pitch](https://jovoy-redesign.vercel.app/pitch) |
+| GitHub repo | [github.com/techakshay006/jovoy-redesign](https://github.com/techakshay006/jovoy-redesign) |
 
 ## Local development
 
