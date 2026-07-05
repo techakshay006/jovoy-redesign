@@ -6,6 +6,8 @@ export function optimizedImageUrl(
 ): string {
   if (!src) return src
   if (src.startsWith('/') || src.startsWith('data:')) return src
+  // SVGs and icons — serve directly (Vercel optimizer rejects SVG requests)
+  if (/\.svg(\?|$)/i.test(src)) return src
   if (import.meta.env.DEV) return src
 
   return `/_vercel/image?url=${encodeURIComponent(src)}&w=${width}&q=${quality}`

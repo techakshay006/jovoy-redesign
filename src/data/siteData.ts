@@ -1,6 +1,6 @@
 export const ASSETS = {
-  logo: 'https://www.jovoyparis.uk/themes/beyonds/assets/img/logo/jovoy-logo.svg',
-  logoWhite: 'https://www.jovoyparis.uk/themes/beyonds/assets/img/logo/jovoy-logo-white.svg',
+  logo: '/logo/jovoy-logo.svg',
+  logoWhite: '/logo/jovoy-logo-white.svg',
   mayfairStore: 'https://www.jovoyparis.uk/img/cms/UK/Blocs/mayfair.png',
   perfectScentHuman: 'https://www.jovoyparis.uk/img/cms/Blocs%20Home%20Page/iStock-900979570.png',
   spray: 'https://www.jovoyparis.uk/img/cms/Blocs%20Home%20Page/Spray_jovoy.png',

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { ASSETS, navLinks } from '../data/siteData'
-import { resolveImage } from '../lib/imageUrl'
 import { HeaderSearchBar } from './HeaderSearchBar'
 import { SignInTrigger } from './AuthDialog'
 
@@ -82,7 +81,7 @@ export function Header({
             whileHover={{ scale: 1.03 }}
           >
             <motion.img
-              src={resolveImage(ASSETS.logo, { width: 256, eager: true })}
+              src={ASSETS.logo}
               alt="Jovoy Mayfair"
               className="h-11 w-auto sm:h-14 md:h-16 lg:h-[4.5rem] xl:h-[4.75rem]"
               animate={{ opacity: [1, 0.88, 1] }}

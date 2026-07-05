@@ -116,7 +116,7 @@ export function Footer({
         <PageContainer className="py-10 md:py-16">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
             <div className="lg:col-span-3">
-              <img src={resolveImage(ASSETS.logoWhite, { width: 200 })} alt="Jovoy Mayfair" className="h-12 w-auto" loading="lazy" decoding="async" />
+              <img src={ASSETS.logoWhite} alt="Jovoy Mayfair" className="h-12 w-auto" loading="lazy" decoding="async" />
               <address className="mt-6 not-italic text-sm leading-relaxed text-white/75">
                 {storeInfo.name}
                 <br />

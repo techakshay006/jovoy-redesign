@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ASSETS, accountNavLinks, footerSocialLinks, navLinks, secondaryNavLinks } from '../data/siteData'
-import { resolveImage } from '../lib/imageUrl'
 import type { SecondaryNavId } from './SecondaryNav'
 import { SocialIcon } from './SocialIcon'
 
@@ -59,7 +58,7 @@ export function MobileMenu({ open, onClose, onSearchOpen, onSignInOpen, onExplor
             style={{ paddingTop: 'var(--safe-top)', paddingBottom: 'var(--safe-bottom)' }}
           >
             <div className="flex items-center justify-between border-b border-jovoy-border px-4 py-4">
-              <img src={resolveImage(ASSETS.logo, { width: 200, eager: true })} alt="Jovoy" className="h-11" />
+              <img src={ASSETS.logo} alt="Jovoy" className="h-11" />
               <button
                 type="button"
                 onClick={onClose}
