@@ -1,32 +1,35 @@
-# React + TypeScript + Vite
+# Jovoy Mayfair — Homepage Redesign
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Interactive homepage prototype and owner pitch landing page for [Jovoy Paris UK](https://www.jovoyparis.uk/).
 
-Currently, two official plugins are available:
+## Live URLs (after Vercel deploy)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+| Page | Path |
+|------|------|
+| Homepage demo | `/` |
+| Owner pitch (share this) | `/pitch` |
 
-## React Compiler
+## Local development
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Open `http://127.0.0.1:5173/` for the demo and `http://127.0.0.1:5173/pitch` for the pitch page.
+
+## Deploy to Vercel
+
+1. Create repo: [github.com/new](https://github.com/new) → name it `jovoy-redesign` (empty, no README).
+2. Push code:
+
+```bash
+chmod +x scripts/push-to-github.sh
+./scripts/push-to-github.sh
+```
+
+3. In [Vercel](https://vercel.com/dashboard), import `techakshay006/jovoy-redesign`. Settings are in `vercel.json` (Vite, output `dist`).
+
+## Stack
+
+Vite · React · TypeScript · Tailwind CSS v4 · Framer Motion
