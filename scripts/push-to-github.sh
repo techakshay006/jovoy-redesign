@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
-REPO="https://github.com/techakshay006/jovoy-redesign.git"
+REPO="git@github.com:techakshay006/jovoy-redesign.git"
 
 echo "→ Preparing git repo in $ROOT"
 
