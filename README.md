@@ -1,13 +1,13 @@
 # Jovoy Mayfair — Homepage Redesign
 
-Interactive homepage prototype and owner pitch landing page for [Jovoy Paris UK](https://www.jovoyparis.uk/).
+Interactive homepage prototype and owner pitch landing page.
 
 ## Live URLs (after Vercel deploy)
 
 | Page | Path |
 |------|------|
-| Homepage demo | `/` |
-| Owner pitch (share this) | `/pitch` |
+| Homepage demo | `https://jovoy-redesign.vercel.app` |
+| Owner pitch (share this) | `https://jovoy-redesign.vercel.app/pitch` |
 
 ## Local development
 
