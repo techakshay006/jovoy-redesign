@@ -41,6 +41,7 @@ export function CTASection() {
                   src={item.image}
                   alt=""
                   className="absolute inset-0 h-full w-full object-cover brightness-110"
+                  width={640}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-white/40" />
                 <div className="relative w-full p-5 sm:p-7">

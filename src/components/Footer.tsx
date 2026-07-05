@@ -9,6 +9,7 @@ import {
   footerYouLinks,
   storeInfo,
 } from '../data/siteData'
+import { resolveImage } from '../lib/imageUrl'
 import { PageContainer } from './PageContainer'
 import { DemoBanner } from './DemoProvider'
 import { SocialIcon } from './SocialIcon'
@@ -102,7 +103,7 @@ export function Footer({
           <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 sm:gap-6 md:grid-cols-3 lg:grid-cols-6 lg:gap-8">
             {footerServices.map((service) => (
               <div key={service.title} className="flex flex-col items-center text-center">
-                <img src={service.icon} alt="" className="mb-3 h-10 w-10" loading="lazy" decoding="async" />
+                <img src={resolveImage(service.icon, { width: 80 })} alt="" className="mb-3 h-10 w-10" loading="lazy" decoding="async" />
                 <p className="text-[11px] leading-snug font-medium text-jovoy-ink">{service.title}</p>
                 <p className="text-[10px] text-jovoy-muted">{service.subtitle}</p>
               </div>
@@ -115,7 +116,7 @@ export function Footer({
         <PageContainer className="py-10 md:py-16">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
             <div className="lg:col-span-3">
-              <img src={ASSETS.logoWhite} alt="Jovoy Mayfair" className="h-12 w-auto" loading="lazy" decoding="async" />
+              <img src={resolveImage(ASSETS.logoWhite, { width: 200 })} alt="Jovoy Mayfair" className="h-12 w-auto" loading="lazy" decoding="async" />
               <address className="mt-6 not-italic text-sm leading-relaxed text-white/75">
                 {storeInfo.name}
                 <br />

@@ -16,6 +16,7 @@ export function VisitSection() {
                 className="aspect-square w-full object-cover brightness-105"
                 eager
                 thumb={false}
+                width={640}
               />
             </div>
           </div>

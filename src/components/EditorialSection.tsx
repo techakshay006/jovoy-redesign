@@ -18,6 +18,7 @@ function EditorialCardScroll({ feature, eager }: { feature: (typeof editorialFea
             alt={feature.name}
             eager={eager}
             thumb={false}
+            width={640}
             className="h-full w-full scale-[1.12] object-cover object-center brightness-105 transition-transform duration-500 group-hover:scale-[1.18]"
           />
         </div>
@@ -49,6 +50,7 @@ function EditorialCardGrid({ feature, eager }: { feature: (typeof editorialFeatu
             alt={feature.name}
             eager={eager}
             thumb={false}
+            width={640}
             className="h-full w-full scale-[1.12] object-cover object-center brightness-105 transition-transform duration-500 group-hover:scale-[1.18]"
           />
         </div>

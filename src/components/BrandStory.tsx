@@ -20,6 +20,7 @@ export function BrandStory() {
               className="h-12 w-auto shrink-0 sm:h-14"
               eager
               thumb={false}
+              width={200}
             />
             <div className="min-w-0">
               <p className="font-serif text-base text-jovoy-ink sm:text-lg">{storeInfo.name}</p>
@@ -36,6 +37,7 @@ export function BrandStory() {
               className="aspect-[4/5] w-full object-cover object-top brightness-105"
               eager
               thumb={false}
+              width={640}
             />
             <div className="bg-white p-5 text-center sm:p-6">
               <p className="text-xs font-semibold tracking-[0.2em] uppercase text-jovoy-gold">Olfactory Experience</p>

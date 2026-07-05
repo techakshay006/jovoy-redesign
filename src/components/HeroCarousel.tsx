@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { heroSlides } from '../data/siteData'
+import { resolveImage } from '../lib/imageUrl'
 import { OptimizedImage } from './OptimizedImage'
 import { ScrollIndicator } from './ScrollIndicator'
 import { PageContainer } from './PageContainer'
@@ -16,6 +17,17 @@ export function HeroCarousel({ compact = false }: { compact?: boolean }) {
     const timer = setInterval(next, 6000)
     return () => clearInterval(timer)
   }, [next])
+
+  useEffect(() => {
+    heroSlides.forEach((s, i) => {
+      if (i === 0) return
+      const link = document.createElement('link')
+      link.rel = 'prefetch'
+      link.as = 'image'
+      link.href = resolveImage(s.image, { width: 960, eager: true })
+      document.head.appendChild(link)
+    })
+  }, [])
 
   const slide = heroSlides[current]
 
@@ -78,6 +90,7 @@ export function HeroCarousel({ compact = false }: { compact?: boolean }) {
                   alt={slide.title}
                   eager
                   thumb={false}
+                  width={960}
                   className={
                     compact
                       ? 'block h-auto w-full max-h-[min(58vw,280px)] object-contain object-center sm:max-h-[300px] lg:max-h-[260px]'

@@ -60,7 +60,8 @@ export function ProductCard({ product, eager = false, compact = false }: Product
                 src={product.image}
                 alt={product.name}
                 eager={eager}
-                thumb={false}
+                thumb
+                width={420}
                 className="absolute inset-0 h-full w-full scale-[1.14] object-cover object-center transition-transform duration-500 group-hover:scale-[1.2]"
               />
             </div>

@@ -2,6 +2,35 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
+  "images": {
+    "sizes": [80, 200, 240, 420, 640, 960, 1280],
+    "qualities": [75, 82],
+    "formats": ["image/avif", "image/webp"],
+    "minimumCacheTTL": 31536000,
+    "dangerouslyAllowSVG": true,
+    "contentDispositionType": "inline",
+    "remotePatterns": [
+      {
+        "protocol": "https",
+        "hostname": "www.jovoyparis.uk",
+        "pathname": "/**"
+      }
+    ]
+  },
+  "headers": [
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ],
   "rewrites": [
     { "source": "/pitch", "destination": "/pitch/index.html" }
   ]

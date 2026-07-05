@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ASSETS } from '../data/siteData'
+import { resolveImage } from '../lib/imageUrl'
 
 interface SplashScreenProps {
   onComplete: () => void
@@ -20,7 +21,7 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
       transition={{ duration: 0.35 }}
     >
       <img
-        src={ASSETS.logo}
+        src={resolveImage(ASSETS.logo, { width: 256, eager: true })}
         alt="Jovoy Paris"
         className="h-11 w-auto md:h-14"
         fetchPriority="high"

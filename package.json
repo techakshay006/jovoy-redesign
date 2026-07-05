@@ -7,6 +7,7 @@
     "dev": "vite",
     "dev:5173": "bash scripts/restart-dev.sh",
     "build": "tsc -b && vite build",
+    "images": "node scripts/mirror-images.mjs",
     "lint": "oxlint",
     "preview": "vite preview"
   },
@@ -24,6 +25,7 @@
     "@vitejs/plugin-react": "^6.0.3",
     "oxlint": "^1.71.0",
     "playwright": "^1.61.1",
+    "sharp": "^0.35.3",
     "tailwindcss": "^4.3.2",
     "typescript": "~6.0.2",
     "vite": "^8.1.1"
