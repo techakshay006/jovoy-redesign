@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#fdfcfa" />
+  <meta name="description" content="A creative homepage concept for Jovoy Mayfair — preview the redesign and book a consultation to discuss the full digital experience." />
+  <title>Jovoy Mayfair — Homepage Redesign Concept | Akshay Kumar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --surface: #fdfcfa;
+      --surface-2: #f7f4ef;
+      --ink: #2c2824;
+      --muted: #6b6560;
+      --gold: #a67c2e;
+      --gold-light: #c9a24a;
+      --gold-pale: #faf3e4;
+      --line: #ebe4d9;
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --sans: "Inter", system-ui, sans-serif;
+      --max: 1080px;
+      --gutter: clamp(1.25rem, 4vw, 2rem);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+    body {
+      font-family: var(--sans);
+      color: var(--ink);
+      background: var(--surface);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(253, 252, 250, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 0.75rem var(--gutter);
+    }
+    .topbar-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .topbar-brand {
+      font-family: var(--serif);
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+    .topbar-brand strong { color: var(--ink); font-weight: 500; }
+    .topbar-actions { display: flex; gap: 0.5rem; flex-shrink: 0; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.7rem 1.1rem;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: #fff;
+      border-color: var(--gold);
+    }
+    .btn-primary:hover { background: #8f6826; }
+    .btn-ghost {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--line);
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+    .btn-lg { padding: 0.95rem 1.6rem; font-size: 0.82rem; }
+
+    .hero {
+      padding: clamp(3rem, 8vw, 5rem) var(--gutter) clamp(2.5rem, 6vw, 4rem);
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 5.5vw, 3.4rem);
+      font-weight: 400;
+      line-height: 1.12;
+      max-width: 16ch;
+      margin-bottom: 1.25rem;
+    }
+    .hero-lead {
+      font-size: clamp(1rem, 2.2vw, 1.12rem);
+      color: var(--muted);
+      max-width: 42rem;
+      margin-bottom: 1.75rem;
+    }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.5rem; }
+    .notice {
+      font-size: 0.82rem;
+      color: var(--muted);
+      background: var(--gold-pale);
+      border: 1px solid #f0e4c8;
+      padding: 0.85rem 1rem;
+      border-radius: 8px;
+      max-width: 42rem;
+    }
+    .notice strong { color: var(--ink); }
+
+    section { padding: clamp(2.5rem, 6vw, 4rem) var(--gutter); }
+    section.alt { background: var(--surface-2); border-block: 1px solid var(--line); }
+    .section-inner { max-width: var(--max); margin: 0 auto; }
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.75rem, 4vw, 2.35rem);
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+    }
+    .section-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 36rem;
+      margin-bottom: 2rem;
+    }
+
+    .preview-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    @media (min-width: 640px) {
+      .preview-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .preview-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .preview-card:hover {
+      box-shadow: 0 8px 32px rgba(44, 40, 36, 0.08);
+      transform: translateY(-2px);
+    }
+    .preview-card img { width: 100%; aspect-ratio: 16/10; object-fit: cover; object-position: top; }
+    .preview-card figcaption {
+      padding: 0.85rem 1rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+    .preview-banner {
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+
+    .values {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    @media (min-width: 768px) {
+      .values { grid-template-columns: repeat(3, 1fr); }
+    }
+    .value-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .value-num {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .value-card h3 {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    .value-card p { font-size: 0.88rem; color: var(--muted); }
+
+    .roadmap { display: flex; flex-direction: column; gap: 0; }
+    .roadmap-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.25rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .roadmap-item:last-child { border-bottom: none; }
+    .roadmap-phase {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding-top: 0.2rem;
+      min-width: 4.5rem;
+    }
+    .roadmap-item h3 {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin-bottom: 0.35rem;
+    }
+    .roadmap-item p { font-size: 0.88rem; color: var(--muted); }
+    .roadmap-item.optional h3::after {
+      content: " · optional";
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    @media (min-width: 768px) {
+      .about { grid-template-columns: 1fr 1fr; }
+    }
+    .about p { font-size: 0.95rem; color: var(--muted); margin-bottom: 0.75rem; }
+    .services-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.35rem 1.5rem;
+      font-size: 0.84rem;
+      color: var(--muted);
+      list-style: none;
+    }
+    @media (max-width: 480px) { .services-list { grid-template-columns: 1fr; } }
+
+    .cta-block {
+      background: var(--ink);
+      color: #f7f4ef;
+      border-radius: 16px;
+      padding: clamp(2rem, 5vw, 3rem);
+      text-align: center;
+    }
+    .cta-block h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+    }
+    .cta-block p {
+      color: #c9bfb0;
+      font-size: 0.95rem;
+      max-width: 32rem;
+      margin: 0 auto 1.75rem;
+    }
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .cta-block .btn-primary { background: var(--gold-light); border-color: var(--gold-light); color: var(--ink); }
+    .cta-block .btn-ghost { color: #f7f4ef; border-color: #5c5650; }
+    .cta-block .btn-ghost:hover { border-color: var(--gold-light); color: var(--gold-light); }
+    .cta-links {
+      font-size: 0.78rem;
+      color: #9a9288;
+      word-break: break-all;
+    }
+    .cta-links a { color: var(--gold-light); text-decoration: underline; }
+
+    .footer {
+      padding: 2rem var(--gutter) 2.5rem;
+      max-width: var(--max);
+      margin: 0 auto;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: center;
+    }
+    .footer strong { color: var(--ink); }
+
+    .mobile-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      padding: 0.65rem var(--gutter) calc(0.65rem + env(safe-area-inset-bottom));
+      background: rgba(253, 252, 250, 0.96);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--line);
+      gap: 0.5rem;
+    }
+    .mobile-bar .btn { flex: 1; padding: 0.75rem 0.5rem; font-size: 0.72rem; }
+    @media (max-width: 640px) {
+      .mobile-bar { display: flex; }
+      body { padding-bottom: 4.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-brand">Proposal for <strong>Jovoy Mayfair</strong></div>
+      <div class="topbar-actions">
+        <a class="btn btn-ghost" href="/">View demo</a>
+        <a class="btn btn-primary" href="https://calendly.com/akshkum006/30min" target="_blank" rel="noopener">Book call</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Homepage redesign concept</p>
+      <h1>A Mayfair digital experience worthy of the collection</h1>
+      <p class="hero-lead">
+        Dear Jovoy Paris UK team — my name is <strong>Akshay Kumar</strong>. While exploring niche fragrance houses in the UK, I was inspired by Jovoy and independently redesigned your homepage to show how the online journey could feel more premium, responsive, and conversion-ready — without losing the soul of the brand.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-lg" href="/">Explore the live demo</a>
+        <a class="btn btn-ghost btn-lg" href="https://calendly.com/akshkum006/30min" target="_blank" rel="noopener">Book a 30-min call</a>
+        <a class="btn btn-ghost btn-lg" href="mailto:akshayec1006@gmail.com?subject=Jovoy%20Mayfair%20Website%20Redesign">Email me</a>
+      </div>
+      <p class="notice">
+        <strong>For demonstration purposes only</strong> — this concept was not commissioned by Jovoy. The demo showcases real fragrances and brand storytelling for preview only; it is not connected to live checkout or account systems.
+      </p>
+    </section>
+
+    <section class="alt" id="demo">
+      <div class="section-inner">
+        <p class="section-label">Live prototype</p>
+        <h2 class="section-title">See the redesign in action</h2>
+        <p class="section-desc">
+          Click any preview to open the interactive demo — splash screen, search, contact previews, product sliders, and full responsive behaviour on phone, tablet, and desktop.
+        </p>
+        <div class="preview-grid">
+          <a class="preview-card" href="/">
+            <img src="/pitch/images/demo-desktop-home.png" alt="Redesigned Jovoy homepage on desktop" width="800" height="500" loading="lazy" />
+            <figcaption>Desktop homepage</figcaption>
+          </a>
+          <a class="preview-card" href="/">
+            <img src="/pitch/images/demo-mobile-home.png" alt="Redesigned Jovoy homepage on mobile" width="800" height="500" loading="lazy" />
+            <figcaption>Mobile homepage</figcaption>
+          </a>
+          <a class="preview-card" href="/">
+            <img src="/pitch/images/demo-desktop-search.png" alt="Expandable search with popular fragrance tags" width="800" height="500" loading="lazy" />
+            <figcaption>Search experience</figcaption>
+          </a>
+          <a class="preview-card" href="/">
+            <img src="/pitch/images/demo-desktop-contact.png" alt="In-page contact preview with store details" width="800" height="500" loading="lazy" />
+            <figcaption>Contact preview</figcaption>
+          </a>
+        </div>
+        <div class="preview-banner">
+          <a class="preview-card" href="/" style="max-width: 100%;">
+            <img src="/pitch/images/demo-desktop-products.png" alt="Product tile cards with uniform sizing and slider" width="1200" height="600" loading="lazy" style="aspect-ratio: 21/9;" />
+            <figcaption>Product tiles &amp; animated sliders</figcaption>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-inner">
+        <p class="section-label">Why it matters</p>
+        <h2 class="section-title">Three moments that convert browsers into visitors</h2>
+        <div class="values">
+          <article class="value-card">
+            <div class="value-num">01</div>
+            <h3>Arrival</h3>
+            <p>A branded splash and calm first impression — closer to walking into Conduit Street than landing on a catalogue page.</p>
+          </article>
+          <article class="value-card">
+            <div class="value-num">02</div>
+            <h3>Discovery</h3>
+            <p>Summer heroes, curated editions, and swipeable product rails with equal-height cards, Exclusivity tags, and Try Me cues.</p>
+          </article>
+          <article class="value-card">
+            <div class="value-num">03</div>
+            <h3>Connection</h3>
+            <p>Search expands with intent-led suggestions. Contact opens an in-page preview with Mayfair details — without leaving the homepage.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt" id="roadmap">
+      <div class="section-inner">
+        <p class="section-label">Beyond the demo</p>
+        <h2 class="section-title">What we build together after your yes</h2>
+        <p class="section-desc">Today's prototype is the homepage concept. A full engagement covers everything your customers need to discover, trust, and purchase online.</p>
+        <div class="roadmap">
+          <div class="roadmap-item">
+            <span class="roadmap-phase">Phase 1</span>
+            <div>
+              <h3>Production homepage &amp; templates</h3>
+              <p>Turn the concept into a production-ready site — all key page templates, responsive QA, performance, and brand polish.</p>
+            </div>
+          </div>
+          <div class="roadmap-item">
+            <span class="roadmap-phase">Phase 2</span>
+            <div>
+              <h3>Commerce — cart &amp; payments</h3>
+              <p>Full shopping flow integrated with your platform: cart, checkout, payment gateways, and order confirmation.</p>
+            </div>
+          </div>
+          <div class="roadmap-item">
+            <span class="roadmap-phase">Phase 3</span>
+            <div>
+              <h3>Accounts — login &amp; wishlist</h3>
+              <p>Customer accounts, sign-in, wishlist, order tracking, and the Try Me journey connected end-to-end.</p>
+            </div>
+          </div>
+          <div class="roadmap-item">
+            <span class="roadmap-phase">Phase 4</span>
+            <div>
+              <h3>Growth &amp; analytics</h3>
+              <p>GA4, Meta Pixel, conversion tracking, SEO, and campaign landing pages so every pound of marketing is measurable.</p>
+            </div>
+          </div>
+          <div class="roadmap-item optional">
+            <span class="roadmap-phase">Phase 5</span>
+            <div>
+              <h3>AI fragrance assistant</h3>
+              <p>An intelligent chat experience to guide customers by mood, notes, or occasion — and route high-intent visitors to consultation or purchase.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-inner about">
+        <div>
+          <p class="section-label">Your partner</p>
+          <h2 class="section-title">Akshay Kumar</h2>
+          <p>I specialise in premium website design, conversion-focused UX, analytics, and digital marketing for luxury and niche brands.</p>
+          <p>On our call I'll walk you through the live demo, answer your questions, and outline a clear plan, timeline, and investment for the full build.</p>
+        </div>
+        <div>
+          <p class="section-label" style="margin-bottom: 0.75rem;">I can also support</p>
+          <ul class="services-list">
+            <li>Complete website design &amp; development</li>
+            <li>Campaign landing pages</li>
+            <li>Conversion rate optimisation</li>
+            <li>GA4 &amp; Google Tag Manager</li>
+            <li>Meta Pixel &amp; ad tracking</li>
+            <li>SEO &amp; performance</li>
+            <li>Facebook, Instagram &amp; Google ads</li>
+            <li>Email automation &amp; dashboards</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt" id="book">
+      <div class="section-inner">
+        <div class="cta-block">
+          <h2>Let's walk through it together</h2>
+          <p>Book a free 30-minute consultation. I'll show you the demo live and discuss how we turn this concept into your complete Jovoy digital experience.</p>
+          <div class="cta-buttons">
+            <a class="btn btn-primary btn-lg" href="https://calendly.com/akshkum006/30min" target="_blank" rel="noopener">Schedule on Calendly</a>
+            <a class="btn btn-ghost btn-lg" href="mailto:akshayec1006@gmail.com?subject=Jovoy%20Mayfair%20Website%20Redesign&amp;body=Hi%20Akshay%2C%20I%27d%20like%20to%20discuss%20the%20homepage%20redesign%20concept.">Send an email</a>
+            <a class="btn btn-ghost btn-lg" href="/">Open demo first</a>
+          </div>
+          <p class="cta-links">
+            Calendly: <a href="https://calendly.com/akshkum006/30min">calendly.com/akshkum006/30min</a><br />
+            Email: <a href="mailto:akshayec1006@gmail.com">akshayec1006@gmail.com</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p><strong>Kind regards,</strong><br />Akshay Kumar · Digital Experience, Analytics &amp; Growth Consultant</p>
+    <p style="margin-top: 1rem;">Concept demo only · Not affiliated with or commissioned by Jovoy Paris UK</p>
+  </footer>
+
+  <div class="mobile-bar" aria-hidden="true">
+    <a class="btn btn-ghost" href="/">Demo</a>
+    <a class="btn btn-primary" href="https://calendly.com/akshkum006/30min" target="_blank" rel="noopener">Book call</a>
+  </div>
+
+</body>
+</html>

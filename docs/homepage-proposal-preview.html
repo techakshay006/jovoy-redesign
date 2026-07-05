@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website Redesign Proposal — Jovoy Paris UK</title>
+  <style>
+    :root {
+      --gold: #b8956b;
+      --gold-dark: #8f7048;
+      --cream: #faf7f2;
+      --ink: #1a1714;
+      --muted: #6b6560;
+      --line: #e8e2d9;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.6;
+    }
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 48px 52px 80px;
+    }
+    @media print {
+      .page { padding: 28px 36px; }
+      .no-print { display: none; }
+      .compare-block { break-inside: avoid; page-break-inside: avoid; }
+      .compare-part { break-inside: avoid; page-break-inside: avoid; }
+      .story { break-inside: avoid; }
+    }
+    .eyebrow {
+      font-family: system-ui, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 14px;
+    }
+    h1 {
+      font-size: clamp(1.9rem, 4vw, 2.6rem);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 400;
+      margin: 44px 0 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+    }
+    h3 {
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin: 0 0 8px;
+    }
+    p { font-size: 0.96rem; color: #2c2824; margin-bottom: 10px; }
+    .lead { font-size: 1.05rem; color: var(--muted); max-width: 680px; }
+    .intro-card {
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--gold);
+      padding: 22px 24px;
+      margin: 24px 0;
+      border-radius: 8px;
+    }
+    .intro-card strong { font-family: system-ui, sans-serif; }
+    .notice {
+      background: #fffbeb;
+      border: 1px solid #f0e4c8;
+      padding: 12px 16px;
+      border-radius: 6px;
+      font-family: system-ui, sans-serif;
+      font-size: 0.84rem;
+      margin: 16px 0 28px;
+    }
+    .demo-link {
+      display: inline-block;
+      margin: 8px 12px 0 0;
+      font-family: system-ui, sans-serif;
+      font-size: 0.9rem;
+      color: var(--gold-dark);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+    }
+    .book-call {
+      background: var(--ink);
+      color: #fff;
+      padding: 22px 24px;
+      border-radius: 10px;
+      margin: 32px 0 8px;
+    }
+    .book-call p {
+      color: #e8e2d9;
+      font-size: 0.92rem;
+      margin-bottom: 14px;
+    }
+    .book-call a {
+      display: inline-block;
+      font-family: system-ui, sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: var(--gold);
+      padding: 11px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+    .book-call .link-plain {
+      display: block;
+      margin-top: 10px;
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+      color: #c9bfb0;
+      word-break: break-all;
+    }
+    .compare-part {
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 28px 28px 8px;
+      margin: 36px 0 44px;
+    }
+    .compare-part > h2 {
+      margin-top: 0;
+      border-bottom: none;
+      padding-bottom: 0;
+      font-size: 1.5rem;
+    }
+    .compare-part-intro {
+      font-family: system-ui, sans-serif;
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin: 6px 0 20px;
+      max-width: 720px;
+    }
+    .compare-legend {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 18px;
+      font-family: system-ui, sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+    }
+    .compare-legend span:last-child { color: var(--gold-dark); font-weight: 600; }
+    .feature-block { margin: 0 0 32px; }
+    .feature-block h3 {
+      font-size: 0.95rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      text-transform: none;
+      color: var(--ink);
+      margin: 0 0 6px;
+      font-family: Georgia, serif;
+    }
+    .compare-block { margin: 0 0 8px; }
+    .compare-caption {
+      font-family: system-ui, sans-serif;
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+      max-width: 760px;
+    }
+    .compare-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 720px) {
+      .compare-row { grid-template-columns: 1fr; }
+      .page { padding: 28px 20px 56px; }
+    }
+    .shot {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fafafa;
+    }
+    .shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .shot figcaption {
+      font-family: system-ui, sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 8px 10px;
+      background: #fff;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      text-align: center;
+    }
+    .shot.demo figcaption { color: var(--gold-dark); font-weight: 600; }
+    .story {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      align-items: start;
+      margin: 20px 0 8px;
+    }
+    @media (max-width: 720px) { .story { grid-template-columns: 1fr; } }
+    .story p:last-child { margin-bottom: 0; }
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0 4px;
+    }
+    .pill {
+      font-family: system-ui, sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--cream);
+      border: 1px solid var(--line);
+      color: #3d3834;
+    }
+    .services {
+      columns: 2;
+      column-gap: 28px;
+      font-family: system-ui, sans-serif;
+      font-size: 0.88rem;
+      margin: 12px 0 0 18px;
+    }
+    @media (max-width: 600px) { .services { columns: 1; } }
+    .services li { margin-bottom: 6px; break-inside: avoid; }
+    .signoff {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+    .signoff p { margin-bottom: 4px; }
+    .print-hint {
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+      color: var(--muted);
+      background: var(--cream);
+      border: 1px dashed var(--gold);
+      padding: 10px 14px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <p class="print-hint no-print">Preview — open in browser, then Print → Save as PDF when approved.</p>
+
+    <div class="eyebrow">Website Redesign Proposal</div>
+    <h1>Jovoy Paris UK</h1>
+    <p class="lead">A creative homepage concept to show how the Mayfair digital experience could feel more premium, responsive, and conversion-ready — while keeping the soul of the brand.</p>
+
+    <div class="intro-card">
+      <p>Dear Jovoy Paris UK Team,</p>
+      <p>My name is <strong>Akshay Kumar</strong>. I specialise in premium websites, conversion-focused user experiences, analytics implementations, and digital marketing that help luxury brands grow online with measurable impact.</p>
+      <p>While exploring niche fragrance houses in the UK, I came across Jovoy Paris UK and was inspired by your collection and brand identity. As a creative initiative, I independently redesigned your homepage to demonstrate how the experience could be elevated — preserving the luxury essence of Jovoy.</p>
+      <p><strong>Please note:</strong> This redesign was created solely for <strong>demonstration purposes</strong> and was not commissioned by your team. It is intended to showcase my approach and the potential for a richer online customer journey.</p>
+      <a class="demo-link" href="#">[Insert Demo Website Link]</a>
+      <a class="demo-link" href="https://calendly.com/akshkum006/30min">Book a 30-min discovery call</a>
+    </div>
+
+    <div class="notice">The interactive demo is populated with real Jovoy fragrances, editorial stories, and brand messaging so the experience feels authentic — for demo purpose only, not connected to live checkout or account systems.</div>
+
+    <h2>The story in three moments</h2>
+    <div class="story">
+      <div>
+        <h3>01 · Arrival</h3>
+        <p>A branded splash and centred logo set a calm, boutique tone before the customer reaches the hero — closer to walking into Conduit Street than landing on a catalogue page.</p>
+      </div>
+      <div>
+        <h3>02 · Discovery</h3>
+        <p>Summer heroes, curated editions, and product rails tell the same Jovoy story with more breathing room — swipe on mobile, hover depth on desktop.</p>
+      </div>
+    </div>
+    <div class="story">
+      <div>
+        <h3>03 · Connection</h3>
+        <p>Search and Contact are no longer afterthoughts. Search expands with intent-led suggestions; Contact opens an elegant in-page preview with store details and next steps — without leaving the homepage.</p>
+      </div>
+      <div>
+        <p style="font-family:system-ui,sans-serif;font-size:0.82rem;color:var(--muted);margin-top:18px;">Recommend viewing the live prototype for motion, interactions, and the full scroll narrative.</p>
+      </div>
+    </div>
+
+    <h2>Side-by-side comparisons</h2>
+    <p class="compare-caption">Each row shows the <strong>current Jovoy site</strong> (left) next to the <strong>redesign demo</strong> (right). Grouped by desktop, then mobile.</p>
+
+    <section class="compare-part">
+      <h2>1 · Desktop comparison</h2>
+      <p class="compare-part-intro">Laptop / desktop view at 1440px — centred layout, hover previews, and wider product storytelling.</p>
+      <div class="compare-legend"><span>Current site</span><span>Redesign demo</span></div>
+
+      <div class="feature-block">
+        <h3>Homepage</h3>
+        <p class="compare-caption">Hero carousel, navigation hierarchy, and first impression.</p>
+        <div class="compare-block">
+          <div class="compare-row">
+            <figure class="shot">
+              <img src="proposal-images/original-desktop-home.png" alt="Current Jovoy homepage on desktop" />
+              <figcaption>Current · Homepage</figcaption>
+            </figure>
+            <figure class="shot demo">
+              <img src="proposal-images/demo-desktop-home.png" alt="Redesigned Jovoy homepage on desktop" />
+              <figcaption>Demo · Homepage</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-block">
+        <h3>Search</h3>
+        <p class="compare-caption">Static header field vs. expandable search with animated placeholders and popular fragrance shortcuts.</p>
+        <div class="compare-block">
+          <div class="compare-row">
+            <figure class="shot">
+              <img src="proposal-images/original-desktop-search.png" alt="Current desktop search header" />
+              <figcaption>Current · Search in header</figcaption>
+            </figure>
+            <figure class="shot demo">
+              <img src="proposal-images/demo-desktop-search.png" alt="Demo desktop expanded search" />
+              <figcaption>Demo · Expandable search layer</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-block">
+        <h3>Contact</h3>
+        <p class="compare-caption">Top-bar link only vs. in-page preview with Mayfair address, hours, phone, and clear CTAs.</p>
+        <div class="compare-block">
+          <div class="compare-row">
+            <figure class="shot">
+              <img src="proposal-images/original-desktop-home.png" alt="Current desktop header with contact link" />
+              <figcaption>Current · External Contact link</figcaption>
+            </figure>
+            <figure class="shot demo">
+              <img src="proposal-images/demo-desktop-contact.png" alt="Demo desktop contact preview panel" />
+              <figcaption>Demo · Contact preview panel</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-block">
+        <h3>Product tile cards</h3>
+        <p class="compare-caption">Uniform card heights, Exclusivity / Try Me badges at the top, swipe slider with arrow controls, and cleaner product storytelling.</p>
+        <div class="compare-block">
+          <div class="compare-row">
+            <figure class="shot">
+              <img src="proposal-images/original-desktop-products.png" alt="Current desktop product listing tiles" />
+              <figcaption>Current · Product grid</figcaption>
+            </figure>
+            <figure class="shot demo">
+              <img src="proposal-images/demo-desktop-products.png" alt="Demo desktop product slider cards" />
+              <figcaption>Demo · Animated product slider</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="compare-part">
+      <h2>2 · Mobile comparison</h2>
+      <p class="compare-part-intro">Phone view at 390px — bottom app navigation, tap previews, and swipe product rails.</p>
+      <div class="compare-legend"><span>Current site</span><span>Redesign demo</span></div>
+
+      <div class="feature-block">
+        <h3>Homepage</h3>
+        <p class="compare-caption">Mobile header, hero, and scroll entry into collections.</p>
+        <div class="compare-block">
+          <div class="compare-row">
+            <figure class="shot">
+              <img src="proposal-images/original-mobile-home.png" alt="Current Jovoy homepage on mobile" />
+              <figcaption>Current · Homepage</figcaption>
+            </figure>
+            <figure class="shot demo">
+              <img src="proposal-images/demo-mobile-home.png" alt="Redesigned Jovoy homepage on mobile" />
+              <figcaption>Demo · Homepage</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-block">
+        <h3>Search</h3>
+        <p class="compare-caption">Always-visible search bar vs. full-screen search overlay with popular tags.</p>
+        <div class="compare-block">
+          <div class="compare-row">
+            <figure class="shot">
+              <img src="proposal-images/original-mobile-search.png" alt="Current mobile search header" />
+              <figcaption>Current · Search in header</figcaption>
+            </figure>
+            <figure class="shot demo">
+              <img src="proposal-images/demo-mobile-search.png" alt="Demo mobile expanded search" />
+              <figcaption>Demo · Search overlay</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-block">
+        <h3>Contact</h3>
+        <p class="compare-caption">Hidden in menu vs. tap-to-open Contact preview with store details and next steps.</p>
+        <div class="compare-block">
+          <div class="compare-row">
+            <figure class="shot">
+              <img src="proposal-images/original-mobile-contact.png" alt="Current mobile contact link" />
+              <figcaption>Current · External Contact link</figcaption>
+            </figure>
+            <figure class="shot demo">
+              <img src="proposal-images/demo-mobile-contact.png" alt="Demo mobile contact preview" />
+              <figcaption>Demo · Contact preview</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-block">
+        <h3>Product tile cards</h3>
+        <p class="compare-caption">Mixed tile sizes vs. equal-height cards, one-per-swipe slider, and visible nav arrows.</p>
+        <div class="compare-block">
+          <div class="compare-row">
+            <figure class="shot">
+              <img src="proposal-images/original-mobile-products.png" alt="Current mobile product listing tiles" />
+              <figcaption>Current · Product tiles</figcaption>
+            </figure>
+            <figure class="shot demo">
+              <img src="proposal-images/demo-mobile-products.png" alt="Demo mobile product slider cards" />
+              <figcaption>Demo · Swipe product cards</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <h2>Also in the demo</h2>
+    <p class="compare-caption">Tablet layouts, branded splash, in-page sign-in, and demo-safe external links — best experienced live in the prototype.</p>
+    <div class="pill-row">
+      <span class="pill">Branded splash on first visit</span>
+      <span class="pill">Tablet-optimised navigation &amp; grids</span>
+      <span class="pill">Curated editions horizontal scroll</span>
+      <span class="pill">3D-style testimonial carousel</span>
+      <span class="pill">Demo mode · External links show “Work in progress”</span>
+    </div>
+
+    <h2>Services I can support</h2>
+    <p>Along with a complete website redesign, I can also help with:</p>
+    <ul class="services">
+      <li>Complete Website Design &amp; Development</li>
+      <li>Landing Pages for Marketing Campaigns</li>
+      <li>Conversion Rate Optimization (CRO)</li>
+      <li>Google Analytics 4 (GA4) &amp; Google Tag Manager (GTM)</li>
+      <li>Meta Pixel &amp; Conversion Tracking</li>
+      <li>SEO &amp; Performance Optimization</li>
+      <li>Facebook &amp; Instagram Advertising</li>
+      <li>Google Ads</li>
+      <li>YouTube Advertising</li>
+      <li>Email Marketing Automation</li>
+      <li>Analytics Dashboards &amp; Reporting</li>
+      <li>Ongoing Website Maintenance &amp; Growth</li>
+    </ul>
+
+    <div class="book-call">
+      <p>Ready to discuss a full website redesign, analytics setup, paid media, or ongoing growth? Pick a 30-minute slot that works for you.</p>
+      <a href="https://calendly.com/akshkum006/30min">Schedule on Calendly →</a>
+      <span class="link-plain">https://calendly.com/akshkum006/30min</span>
+    </div>
+
+    <div class="signoff">
+      <p>If this direction aligns with your vision, I would be delighted to walk through the demo live and outline how we can turn this concept into a complete digital experience for Jovoy Paris UK.</p>
+      <p>Thank you for your time — I hope you enjoy exploring the demo.</p>
+      <p style="margin-top:18px;"><strong>Kind regards,</strong><br />
+      <strong>Akshay Kumar</strong><br />
+      Digital Experience, Analytics &amp; Growth Consultant</p>
+    </div>
+  </div>
+</body>
+</html>
