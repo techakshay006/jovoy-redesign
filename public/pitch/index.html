@@ -920,8 +920,12 @@
       font-size: 1.125rem;
       color: var(--muted);
       line-height: 1.5;
-      margin: 0 auto 50px;
+      margin: 0 auto 28px;
       max-width: 42rem;
+    }
+    #approach.section {
+      padding-top: clamp(2.5rem, 5vw, 3.5rem);
+      padding-bottom: clamp(2.5rem, 5vw, 3.5rem);
     }
     .approach-features .c1-grid {
       display: grid;
@@ -938,6 +942,7 @@
     }
     .approach-features .c1-card {
       position: relative;
+      min-width: 0;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -969,6 +974,7 @@
       top: 30px;
       left: 24px;
       right: 24px;
+      z-index: 3;
       padding: 16px;
       border-radius: 12px;
       background: #ffffff;
@@ -976,6 +982,29 @@
       line-height: 1.6;
       color: #475569;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+      transition: box-shadow 0.35s var(--ease);
+    }
+    .approach-features .c1-prompt-oneliner {
+      margin: 0;
+      font-weight: 600;
+      color: #1e293b;
+    }
+    .approach-features .c1-prompt-detail {
+      margin: 0;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.35s var(--ease), opacity 0.3s ease, margin-top 0.35s var(--ease);
+    }
+    .approach-features .c1-card:hover .c1-prompt-box,
+    .approach-features .c1-card.is-highlight .c1-prompt-box {
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
+    }
+    .approach-features .c1-card:hover .c1-prompt-detail,
+    .approach-features .c1-card.is-highlight .c1-prompt-detail {
+      max-height: 220px;
+      opacity: 1;
+      margin-top: 8px;
     }
     .approach-features .c1-blur-text {
       font-weight: 600;
@@ -1019,14 +1048,37 @@
     }
     .approach-features .c1-api-visual {
       position: absolute;
-      top: 0;
+      top: 95px;
       left: 0;
       right: 0;
-      bottom: 70px;
+      bottom: 74px;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 0 24px;
+    }
+    .approach-features .c1-funnel-band {
+      animation: c1-band-pulse 3.2s ease-in-out infinite;
+      transform-origin: 110px 80px;
+    }
+    @keyframes c1-band-pulse {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 1; }
+    }
+    .approach-features .c1-funnel-flow-dot {
+      animation: c1-flow-dot 3.2s ease-in-out infinite;
+    }
+    @keyframes c1-flow-dot {
+      0% { transform: translateY(0); opacity: 0; }
+      8% { opacity: 1; }
+      88% { opacity: 1; }
+      100% { transform: translateY(150px); opacity: 0; }
+    }
+    .approach-features .c1-card:hover .c1-funnel-band,
+    .approach-features .c1-card.is-highlight .c1-funnel-band,
+    .approach-features .c1-card:hover .c1-funnel-flow-dot,
+    .approach-features .c1-card.is-highlight .c1-funnel-flow-dot {
+      animation-duration: 1.6s;
     }
     .approach-features .c1-network-img {
       width: 100%;
@@ -1049,15 +1101,15 @@
     }
     .approach-features .c1-folder {
       position: absolute;
-      top: 50px;
+      top: 100px;
       left: 50%;
-      width: 170px;
+      width: 150px;
       transform: translateX(-50%);
       filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.08));
     }
     .approach-features .c1-search {
       position: absolute;
-      top: 220px;
+      top: 232px;
       left: 50%;
       transform: translateX(-50%);
       display: inline-flex;
@@ -1446,8 +1498,8 @@
             <div class="approach-pill-wrap approach-pill-wrap--3">
               <a class="approach-pill" href="#approach" data-highlight="approach-connection">
                 <span class="approach-pill-num">03</span>
-                <strong>Connection</strong>
-                <p>Intent-led search and in-page contact paths without breaking the flow.</p>
+                <strong>Funnel</strong>
+                <p>One seamless funnel — discover, compare, reach out — toward a store visit or a sale.</p>
                 <span class="approach-pill-more">Explore approach →</span>
               </a>
             </div>
@@ -1509,7 +1561,8 @@
             <div class="c1-grid">
               <article class="c1-card c1-card-1 approach-detail" id="approach-arrival">
                 <div class="c1-prompt-box">
-                  A calm, high-end <span class="c1-blur-text">branded splash</span> before the homepage loads — visitors feel they have <span class="c1-blur-text">stepped into the Mayfair store</span>, not a generic e-commerce template.
+                  <p class="c1-prompt-oneliner">A calm arrival before the store opens.</p>
+                  <p class="c1-prompt-detail">A calm, high-end <span class="c1-blur-text">branded splash</span> before the homepage loads — visitors feel they have <span class="c1-blur-text">stepped into the Mayfair store</span>, not a generic e-commerce template.</p>
                 </div>
                 <div class="c1-pill-btn"><span>✦</span> Explore collections</div>
                 <svg class="c1-cursor" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2L20 11L11 13L9 22L4 2Z" fill="#0f172a" stroke="#ffffff" stroke-width="1"/></svg>
@@ -1517,13 +1570,10 @@
               </article>
 
               <article class="c1-card c1-card-2 approach-detail" id="approach-discovery">
-                <div class="c1-api-visual">
-                  <img class="c1-network-img" src="https://pub-f170a2592d2c4a1485466404c36807be.r2.dev/viktor/network.svg" alt="" width="280" height="180" loading="lazy" />
+                <div class="c1-prompt-box">
+                  <p class="c1-prompt-oneliner">Search by mood, not by name.</p>
+                  <p class="c1-prompt-detail"><span class="c1-blur-text">Search by mood</span> lets visitors describe how they want to feel instead of scanning names they don't recognize — the fastest path to a fragrance that fits.</p>
                 </div>
-                <h3>Discovery</h3>
-              </article>
-
-              <article class="c1-card c1-card-3 approach-detail" id="approach-connection">
                 <div class="c1-mesh" aria-hidden="true"></div>
                 <img class="c1-folder" src="https://pub-f170a2592d2c4a1485466404c36807be.r2.dev/viktor/library%20icon.svg" alt="" width="170" height="140" loading="lazy" />
                 <div class="c1-search">
@@ -1533,7 +1583,36 @@
                   </svg>
                   Search by mood
                 </div>
-                <h3>Connection</h3>
+                <h3>Discovery</h3>
+              </article>
+
+              <article class="c1-card c1-card-3 approach-detail" id="approach-connection">
+                <div class="c1-prompt-box">
+                  <p class="c1-prompt-oneliner">One funnel, no dead ends, straight to a sale.</p>
+                  <p class="c1-prompt-detail">Every visitor moves through the <span class="c1-blur-text">same seamless funnel</span> — discover, compare, reach out — funnelling toward one outcome: a <span class="c1-blur-text">store visit or a purchase</span>, with nothing to break the flow.</p>
+                </div>
+                <div class="c1-api-visual c1-funnel" aria-label="Conversion funnel: Discover, Compare, Reach out, Convert">
+                  <svg viewBox="0 0 220 160" width="210" height="150" role="img">
+                    <g class="c1-funnel-band" style="animation-delay:0s">
+                      <polygon points="10,0 210,0 190,35 30,35" fill="#fdf3d8" stroke="#7c3aed" stroke-width="1.2"/>
+                      <text x="110" y="21" text-anchor="middle" font-size="10" font-weight="600" fill="#4c1d95">Discover fragrance</text>
+                    </g>
+                    <g class="c1-funnel-band" style="animation-delay:0.35s">
+                      <polygon points="30,40 190,40 170,75 50,75" fill="#f6d9e6" stroke="#7c3aed" stroke-width="1.2"/>
+                      <text x="110" y="61" text-anchor="middle" font-size="10" font-weight="600" fill="#4c1d95">Compare &amp; shortlist</text>
+                    </g>
+                    <g class="c1-funnel-band" style="animation-delay:0.7s">
+                      <polygon points="50,80 170,80 152.5,115 67.5,115" fill="#e5a1f5" stroke="#7c3aed" stroke-width="1.2"/>
+                      <text x="110" y="101" text-anchor="middle" font-size="10" font-weight="600" fill="#3b0764">Reach out in-page</text>
+                    </g>
+                    <g class="c1-funnel-band c1-funnel-band--final" style="animation-delay:1.05s">
+                      <polygon points="63,120 157,120 140,155 80,155" fill="#5b21b6" stroke="#5b21b6" stroke-width="1.2"/>
+                      <text x="110" y="141" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">Convert</text>
+                    </g>
+                    <circle class="c1-funnel-flow-dot" cx="110" cy="8" r="4" fill="#ffffff" stroke="#5b21b6" stroke-width="1.5"/>
+                  </svg>
+                </div>
+                <h3>Funnel</h3>
               </article>
             </div>
           </div>
