@@ -247,7 +247,7 @@
         return;
       }
 
-      var cardHalf = w < 640 ? 54 : 74;
+      var cardHalf = w < 640 ? 64 : 74;
       var hubHalf = hub ? hub.getBoundingClientRect().width / 2 : w * 0.17;
       var gap = 6;
       var margin = 10;
