@@ -328,6 +328,9 @@
         if (Date.now() - lastTouchTime < 600) return;
         toggle(e);
       });
+      card.addEventListener('mouseleave', function () {
+        card.classList.remove('is-tapped');
+      });
     });
   }
 
