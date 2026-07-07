@@ -242,8 +242,15 @@
       var w = viz.clientWidth;
       var desired = Math.round(w * 0.458);
 
-      if (w >= 900) {
-        viz.style.setProperty('--orbit-r', desired + 'px');
+      if (w >= 901) {
+        var pillHalfH = 52;
+        var pillHalfW = 74;
+        var hubH = hub ? hub.offsetHeight : 130;
+        var hubW = hub ? hub.offsetWidth : 210;
+        var minForTop = Math.round(hubH / 2 + pillHalfH + 32);
+        var minForSide = Math.round(hubW / 2 + pillHalfW + 24);
+        var radius = Math.max(desired, minForTop, minForSide);
+        viz.style.setProperty('--orbit-r', radius + 'px');
         return;
       }
 
@@ -308,48 +315,78 @@
     });
   }
 
-  function initApproachTap() {
-    var lastTouchTime = 0;
-    document.querySelectorAll('.approach-detail').forEach(function (card) {
-      card.style.cursor = 'pointer';
-      var toggle = function (e) {
-        if (e.target.closest('a, button')) return;
-        var wasOpen = card.classList.contains('is-tapped');
-        document.querySelectorAll('.approach-detail.is-tapped').forEach(function (c) {
-          if (c !== card) c.classList.remove('is-tapped');
-        });
-        card.classList.toggle('is-tapped', !wasOpen);
-      };
-      card.addEventListener('touchstart', function (e) {
-        lastTouchTime = Date.now();
-        toggle(e);
-      }, { passive: true });
-      card.addEventListener('click', function (e) {
-        if (Date.now() - lastTouchTime < 600) return;
-        toggle(e);
-      });
-      card.addEventListener('mouseleave', function () {
-        card.classList.remove('is-tapped');
-      });
-    });
-  }
-
-  function initApproachAutoReveal() {
+  function initApproachCards() {
+    var grid = document.querySelector('.approach-features .c1-grid');
     var cards = document.querySelectorAll('.approach-detail');
-    if (!cards.length || !('IntersectionObserver' in window)) return;
-    if (window.innerWidth >= 900) return;
+    if (!cards.length) return;
 
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
-          entry.target.classList.add('is-tapped');
-        } else {
-          entry.target.classList.remove('is-tapped');
+    function isMobileSlider() {
+      return window.matchMedia('(max-width: 899px)').matches;
+    }
+
+    function setExpanded(card) {
+      cards.forEach(function (c) {
+        c.classList.toggle('is-tapped', !!card && c === card);
+      });
+    }
+
+    function getCenteredCard() {
+      if (!grid) return cards[0] || null;
+      var gridRect = grid.getBoundingClientRect();
+      var centerX = gridRect.left + gridRect.width / 2;
+      var best = null;
+      var bestDist = Infinity;
+      cards.forEach(function (card) {
+        var rect = card.getBoundingClientRect();
+        var cardCenter = rect.left + rect.width / 2;
+        var dist = Math.abs(cardCenter - centerX);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = card;
         }
       });
-    }, { threshold: [0, 0.6, 1] });
+      return best;
+    }
 
-    cards.forEach(function (card) { observer.observe(card); });
+    function syncMobileExpand() {
+      if (!isMobileSlider()) return;
+      setExpanded(getCenteredCard());
+    }
+
+    if (grid) {
+      grid.addEventListener('scroll', syncMobileExpand, { passive: true });
+    }
+
+    window.addEventListener('resize', function () {
+      if (isMobileSlider()) {
+        syncMobileExpand();
+      } else {
+        cards.forEach(function (c) { c.classList.remove('is-tapped'); });
+      }
+    });
+
+    cards.forEach(function (card) {
+      card.style.cursor = 'pointer';
+
+      card.addEventListener('click', function (e) {
+        if (e.target.closest('a, button')) return;
+        if (!isMobileSlider()) return;
+        setExpanded(card);
+        card.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', inline: 'center', block: 'nearest' });
+      });
+
+      card.addEventListener('mouseenter', function () {
+        if (isMobileSlider()) setExpanded(card);
+      });
+
+      card.addEventListener('mouseleave', function () {
+        if (isMobileSlider()) syncMobileExpand();
+      });
+    });
+
+    syncMobileExpand();
+    window.setTimeout(syncMobileExpand, 120);
+    window.setTimeout(syncMobileExpand, 600);
   }
 
   function boot() {
@@ -362,8 +399,7 @@
     initSectionLines();
     initOrbitRadius();
     initMobileMenu();
-    initApproachTap();
-    initApproachAutoReveal();
+    initApproachCards();
   }
 
   if (document.readyState === 'loading') {
