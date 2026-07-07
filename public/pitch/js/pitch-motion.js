@@ -331,6 +331,24 @@
     });
   }
 
+  function initApproachAutoReveal() {
+    var cards = document.querySelectorAll('.approach-detail');
+    if (!cards.length || !('IntersectionObserver' in window)) return;
+    if (window.innerWidth >= 900) return;
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
+          entry.target.classList.add('is-tapped');
+        } else {
+          entry.target.classList.remove('is-tapped');
+        }
+      });
+    }, { threshold: [0, 0.6, 1] });
+
+    cards.forEach(function (card) { observer.observe(card); });
+  }
+
   function boot() {
     initTypewriter();
     initCountUp();
@@ -342,6 +360,7 @@
     initOrbitRadius();
     initMobileMenu();
     initApproachTap();
+    initApproachAutoReveal();
   }
 
   if (document.readyState === 'loading') {
