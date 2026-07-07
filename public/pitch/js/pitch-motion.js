@@ -238,7 +238,11 @@
     if (!viz) return;
 
     function syncRadius() {
-      var radius = Math.round(viz.clientWidth * 0.458);
+      var w = viz.clientWidth;
+      var desired = Math.round(w * 0.458);
+      var cardHalf = w < 640 ? 60 : 74;
+      var safeMax = Math.round((w / 2) - cardHalf - 14);
+      var radius = w < 900 ? Math.max(40, Math.min(desired, safeMax)) : desired;
       viz.style.setProperty('--orbit-r', radius + 'px');
     }
 
