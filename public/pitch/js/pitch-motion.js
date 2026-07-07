@@ -246,6 +246,39 @@
     window.addEventListener('resize', syncRadius);
   }
 
+  function initMobileMenu() {
+    var btn = document.getElementById('navHamburger');
+    var menu = document.getElementById('mobileMenu');
+    var backdrop = document.getElementById('mobileMenuBackdrop');
+    if (!btn || !menu || !backdrop) return;
+
+    function closeMenu() {
+      btn.classList.remove('is-open');
+      menu.classList.remove('is-open');
+      backdrop.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+      menu.setAttribute('aria-hidden', 'true');
+    }
+    function openMenu() {
+      btn.classList.add('is-open');
+      menu.classList.add('is-open');
+      backdrop.classList.add('is-open');
+      btn.setAttribute('aria-expanded', 'true');
+      menu.setAttribute('aria-hidden', 'false');
+    }
+
+    btn.addEventListener('click', function () {
+      if (menu.classList.contains('is-open')) { closeMenu(); } else { openMenu(); }
+    });
+    backdrop.addEventListener('click', closeMenu);
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', closeMenu);
+    });
+    window.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeMenu();
+    });
+  }
+
   function boot() {
     initTypewriter();
     initCountUp();
@@ -255,6 +288,7 @@
     initHeroLines();
     initSectionLines();
     initOrbitRadius();
+    initMobileMenu();
   }
 
   if (document.readyState === 'loading') {
