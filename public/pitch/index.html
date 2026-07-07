@@ -715,13 +715,19 @@
       color: var(--text);
     }
     .approach-pill-num {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 22px;
+      height: 22px;
+      padding: 0 6px;
+      box-sizing: border-box;
       font-size: 10px;
       font-weight: 700;
       letter-spacing: -0.02em;
+      line-height: 1;
       color: var(--button-text);
       background: var(--button-bg);
-      padding: 2px 7px;
       border-radius: 999px;
       margin-bottom: 6px;
     }
@@ -1556,7 +1562,14 @@
       .approach-pill { width: 128px; margin-left: -64px; margin-top: -38px; padding: 9px 11px 8px; }
       .approach-pill p { display: none; }
       .approach-pill-wrap--1 { transform: rotate(-90deg) translate(calc(var(--orbit-r) + 42px)) rotate(90deg); }
-      .approach-pill-num { font-size: 8px; width: 16px; height: 16px; line-height: 16px; }
+      .approach-pill-num {
+        min-width: 20px;
+        width: 20px;
+        height: 20px;
+        padding: 0;
+        font-size: 9px;
+        letter-spacing: -0.04em;
+      }
       .approach-pill strong { font-size: 0.75rem; }
       .approach-pill-more { font-size: 0.62rem; margin-top: 4px; }
       .brand { font-size: 19px; white-space: nowrap; gap: 0.2rem; }
