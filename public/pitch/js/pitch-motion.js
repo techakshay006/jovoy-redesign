@@ -309,14 +309,24 @@
   }
 
   function initApproachTap() {
+    var lastTouchTime = 0;
     document.querySelectorAll('.approach-detail').forEach(function (card) {
-      card.addEventListener('click', function (e) {
+      card.style.cursor = 'pointer';
+      var toggle = function (e) {
         if (e.target.closest('a, button')) return;
         var wasOpen = card.classList.contains('is-tapped');
         document.querySelectorAll('.approach-detail.is-tapped').forEach(function (c) {
           if (c !== card) c.classList.remove('is-tapped');
         });
         card.classList.toggle('is-tapped', !wasOpen);
+      };
+      card.addEventListener('touchstart', function (e) {
+        lastTouchTime = Date.now();
+        toggle(e);
+      }, { passive: true });
+      card.addEventListener('click', function (e) {
+        if (Date.now() - lastTouchTime < 600) return;
+        toggle(e);
       });
     });
   }
