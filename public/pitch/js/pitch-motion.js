@@ -250,7 +250,15 @@
     var btn = document.getElementById('navHamburger');
     var menu = document.getElementById('mobileMenu');
     var backdrop = document.getElementById('mobileMenuBackdrop');
+    var header = document.querySelector('.site-header');
     if (!btn || !menu || !backdrop) return;
+
+    function syncMenuOffset() {
+      var h = header ? header.getBoundingClientRect().height : 72;
+      menu.style.paddingTop = (h + 24) + 'px';
+    }
+    syncMenuOffset();
+    window.addEventListener('resize', syncMenuOffset);
 
     function closeMenu() {
       btn.classList.remove('is-open');
@@ -260,6 +268,7 @@
       menu.setAttribute('aria-hidden', 'true');
     }
     function openMenu() {
+      syncMenuOffset();
       btn.classList.add('is-open');
       menu.classList.add('is-open');
       backdrop.classList.add('is-open');
@@ -279,6 +288,19 @@
     });
   }
 
+  function initApproachTap() {
+    document.querySelectorAll('.approach-detail').forEach(function (card) {
+      card.addEventListener('click', function (e) {
+        if (e.target.closest('a, button')) return;
+        var wasOpen = card.classList.contains('is-tapped');
+        document.querySelectorAll('.approach-detail.is-tapped').forEach(function (c) {
+          if (c !== card) c.classList.remove('is-tapped');
+        });
+        card.classList.toggle('is-tapped', !wasOpen);
+      });
+    });
+  }
+
   function boot() {
     initTypewriter();
     initCountUp();
@@ -289,6 +311,7 @@
     initSectionLines();
     initOrbitRadius();
     initMobileMenu();
+    initApproachTap();
   }
 
   if (document.readyState === 'loading') {
