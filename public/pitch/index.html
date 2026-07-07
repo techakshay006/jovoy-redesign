@@ -1312,8 +1312,8 @@
     }
     .services-list {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.5rem 1rem;
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
       font-family: var(--font-sans);
       font-size: var(--nav-size);
       line-height: var(--body-lh);
@@ -1321,6 +1321,14 @@
       list-style: none;
     }
     .services-list li::before { content: "✓"; color: var(--text); font-weight: 700; margin-right: 0.35rem; }
+    .services-list .svc-desc {
+      display: block;
+      margin: 3px 0 0 1.15em;
+      font-size: 0.82rem;
+      line-height: 1.45;
+      color: var(--muted);
+      opacity: 0.85;
+    }
 
     .cta-section {
       text-align: center;
@@ -1832,14 +1840,14 @@
         <div class="about-card">
           <p class="section-label">Services</p>
           <ul class="services-list">
-            <li>Website design &amp; development</li>
-            <li>Campaign landing pages</li>
-            <li>Conversion optimisation</li>
-            <li>GA4 &amp; Tag Manager</li>
-            <li>Meta Pixel &amp; ad tracking</li>
-            <li>SEO &amp; performance</li>
-            <li>Facebook, Instagram &amp; Google ads</li>
-            <li>Email automation &amp; dashboards</li>
+            <li><strong>Website design &amp; development</strong><span class="svc-desc">Custom-built sites that load fast and convert, not templates.</span></li>
+            <li><strong>Campaign landing pages</strong><span class="svc-desc">Dedicated pages matched to each ad, not a generic homepage.</span></li>
+            <li><strong>Conversion optimisation</strong><span class="svc-desc">Data-led tweaks to copy, layout, and flow that lift sign-ups.</span></li>
+            <li><strong>GA4 &amp; Tag Manager</strong><span class="svc-desc">Clean tracking setup so every click and sale is measurable.</span></li>
+            <li><strong>Meta Pixel &amp; ad tracking</strong><span class="svc-desc">Accurate ad attribution so spend maps to real results.</span></li>
+            <li><strong>SEO &amp; performance</strong><span class="svc-desc">Faster load times and search visibility that compound over time.</span></li>
+            <li><strong>Facebook, Instagram &amp; Google ads</strong><span class="svc-desc">Campaigns built and managed to a target cost per lead.</span></li>
+            <li><strong>Email automation &amp; dashboards</strong><span class="svc-desc">Automated follow-ups and a live dashboard to track it all.</span></li>
           </ul>
         </div>
       </div>
