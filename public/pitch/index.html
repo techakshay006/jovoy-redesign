@@ -642,6 +642,9 @@
     .approach-pill-wrap--2 {
       transform: rotate(30deg) translate(var(--orbit-r)) rotate(-30deg);
     }
+    @media (max-width: 900px) {
+      .approach-pill-wrap--2 { transform: rotate(30deg) translate(calc(var(--orbit-r) + 30px)) rotate(-30deg); }
+    }
     .approach-pill-wrap--3 {
       transform: rotate(150deg) translate(var(--orbit-r)) rotate(-150deg);
     }
@@ -1526,10 +1529,11 @@
       body { padding-bottom: 4.5rem; }
       .header-right .link-light { display: none; }
       .hero-actions { flex-wrap: nowrap; gap: 0.4rem; }
-      .btn-pill-hero { padding: 10px 14px; font-size: 12.5px; white-space: nowrap; }
+      .btn-pill-hero, .btn-book { height: 44px; box-sizing: border-box; }
+      .btn-pill-hero { padding: 0 14px; font-size: 12.5px; white-space: nowrap; display: inline-flex; align-items: center; }
       .btn-pill-hero svg { width: 14px; height: 14px; }
-      .btn-book { padding: 5px 12px 5px 5px; gap: 6px; border-width: 2px; }
-      .btn-book-avatar { width: 26px; height: 26px; }
+      .btn-book { padding: 0 12px 0 5px; gap: 6px; border-width: 2px; align-items: center; }
+      .btn-book-avatar { width: 32px; height: 32px; }
       .btn-book-primary { font-size: 11px; white-space: nowrap; }
       .btn-book-secondary { display: none; }
     }
