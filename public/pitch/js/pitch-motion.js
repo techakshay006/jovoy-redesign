@@ -235,14 +235,30 @@
 
   function initOrbitRadius() {
     var viz = document.querySelector('.circles-viz');
+    var hub = document.querySelector('.orbit-hub');
     if (!viz) return;
 
     function syncRadius() {
       var w = viz.clientWidth;
       var desired = Math.round(w * 0.458);
-      var cardHalf = w < 640 ? 60 : 74;
-      var safeMax = Math.round((w / 2) - cardHalf - 14);
-      var radius = w < 900 ? Math.max(40, Math.min(desired, safeMax)) : desired;
+
+      if (w >= 900) {
+        viz.style.setProperty('--orbit-r', desired + 'px');
+        return;
+      }
+
+      var cardHalf = w < 640 ? 46 : 74;
+      var hubHalf = hub ? hub.getBoundingClientRect().width / 2 : w * 0.17;
+      var gap = 6;
+      var margin = 10;
+      var minRadius = Math.round(hubHalf + gap + cardHalf);
+      var maxRadius = Math.round((w / 2) - cardHalf - margin);
+      var radius;
+      if (minRadius <= maxRadius) {
+        radius = Math.round((minRadius + maxRadius) / 2);
+      } else {
+        radius = Math.max(30, maxRadius);
+      }
       viz.style.setProperty('--orbit-r', radius + 'px');
     }
 
